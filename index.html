@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bahati Fashion | Modern Fashion Store</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f7f7f7;
+            color: #222;
+            line-height: 1.6;
+        }
+
+        /* NAVBAR */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: #111;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 7%;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: #d4af37;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #d4af37;
+        }
+
+        .cart-btn {
+            background: #d4af37;
+            color: #111;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 85vh;
+            background:
+                linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+                url("https://images.unsplash.com/photo-1445205170230-053b83016050?auto=format&fit=crop&w=1600&q=80")
+                center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 30px;
+        }
+
+        .hero-content h1 {
+            font-size: 60px;
+            margin-bottom: 15px;
+        }
+
+        .hero-content h1 span {
+            color: #d4af37;
+        }
+
+        .hero-content p {
+            font-size: 20px;
+            margin-bottom: 25px;
+        }
+
+        .hero-btn {
+            display: inline-block;
+            background: #d4af37;
+            color: #111;
+            padding: 14px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .hero-btn:hover {
+            background: white;
+        }
+
+        /* GENERAL */
+        section {
+            padding: 80px 7%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-title h2 {
+            font-size: 38px;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #777;
+        }
+
+        /* CATEGORIES */
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .category {
+            height: 300px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .category img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+
+        .category:hover img {
+            transform: scale(1.08);
+        }
+
+        .category-content {
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .category-content h3 {
+            color: white;
+            font-size: 30px;
+        }
+
+        /* PRODUCTS */
+        .products {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .product {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: 0.3s;
+        }
+
+        .product:hover {
+            transform: translateY(-7px);
+        }
+
+        .product img {
+            width: 100%;
+            height: 270px;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 18px;
+        }
+
+        .product-info h3 {
+            margin-bottom: 5px;
+        }
+
+        .product-category {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            font-size: 20px;
+            font-weight: bold;
+            color: #d4af37;
+            margin-bottom: 15px;
+        }
+
+        .add-cart {
+            width: 100%;
+            padding: 11px;
+            border: none;
+            background: #111;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .add-cart:hover {
+            background: #d4af37;
+            color: #111;
+        }
+
+        /* PROMOTION */
+        .promotion {
+            background: #111;
+            color: white;
+            text-align: center;
+        }
+
+        .promotion h2 {
+            font-size: 45px;
+            color: #d4af37;
+        }
+
+        .promotion p {
+            font-size: 20px;
+            margin: 10px 0 25px;
+        }
+
+        /* ABOUT */
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        .about-text h2 {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        /* FOUNDER */
+        .founder {
+            background: white;
+        }
+
+        .founder-container {
+            max-width: 950px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 50px;
+            align-items: center;
+            background: #f7f7f7;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+        }
+
+        .profile-photo {
+            width: 270px;
+            height: 270px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 7px solid #d4af37;
+            display: block;
+            margin: auto;
+            background: #ddd;
+        }
+
+        .founder-text h2 {
+            font-size: 35px;
+            margin-bottom: 5px;
+        }
+
+        .founder-text h3 {
+            color: #d4af37;
+            margin-bottom: 18px;
+        }
+
+        .founder-text p {
+            color: #666;
+            margin-bottom: 12px;
+        }
+
+        .founder-info {
+            margin-top: 20px;
+        }
+
+        .founder-info p {
+            margin: 7px 0;
+        }
+
+        /* FEATURES */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .feature {
+            background: white;
+            text-align: center;
+            padding: 30px 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+        }
+
+        .feature-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .feature h3 {
+            margin-bottom: 10px;
+        }
+
+        .feature p {
+            color: #777;
+        }
+
+        /* CONTACT */
+        .contact {
+            background: #111;
+            color: white;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-info h2 {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            margin: 12px 0;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 5px;
+            font-size: 15px;
+        }
+
+        .contact-form textarea {
+            height: 140px;
+            resize: none;
+        }
+
+        .contact-form button {
+            padding: 14px;
+            border: none;
+            background: #d4af37;
+            color: #111;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #050505;
+            color: #aaa;
+            text-align: center;
+            padding: 25px;
+        }
+
+        footer span {
+            color: #d4af37;
+        }
+
+        /* CART */
+        .cart-sidebar {
+            position: fixed;
+            right: -400px;
+            top: 0;
+            width: 380px;
+            height: 100vh;
+            background: white;
+            z-index: 2000;
+            box-shadow: -5px 0 20px rgba(0,0,0,0.2);
+            padding: 25px;
+            transition: 0.4s;
+            overflow-y: auto;
+        }
+
+        .cart-sidebar.active {
+            right: 0;
+        }
+
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .close-cart {
+            background: none;
+            border: none;
+            font-size: 25px;
+            cursor: pointer;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            padding: 15px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .cart-item button {
+            background: #111;
+            color: white;
+            border: none;
+            padding: 5px 9px;
+            cursor: pointer;
+        }
+
+        .cart-total {
+            margin-top: 25px;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .checkout {
+            width: 100%;
+            padding: 14px;
+            background: #d4af37;
+            border: none;
+            margin-top: 20px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 1000px) {
+            .products {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .features {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .categories {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 750px) {
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 12px;
+            }
+
+            .hero-content h1 {
+                font-size: 40px;
+            }
+
+            .about,
+            .contact-container,
+            .founder-container {
+                grid-template-columns: 1fr;
+            }
+
+            .founder-container {
+                text-align: center;
+            }
+
+            .products,
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .cart-sidebar {
+                width: 100%;
+                right: -100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="logo">BAHATI <span>FASHION</span></div>
+
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#categories">Categories</a></li>
+            <li><a href="#products">Collection</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#founder">Founder</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <button class="cart-btn" onclick="openCart()">
+            🛒 Cart (<span id="cartCount">0</span>)
+        </button>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Discover <span>Your Style</span></h1>
+            <p>Modern fashion for confident people.</p>
+            <a href="#products" class="hero-btn">Shop Collection</a>
+        </div>
+    </section>
+
+    <!-- CATEGORIES -->
+    <section id="categories">
+        <div class="section-title">
+            <h2>Shop By Category</h2>
+            <p>Discover our latest fashion categories.</p>
+        </div>
+
+        <div class="categories">
+
+            <div class="category">
+                <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=900&q=80">
+                <div class="category-content">
+                    <h3>Women</h3>
+                </div>
+            </div>
+
+            <div class="category">
+                <img src="https://images.unsplash.com/photo-1617137968427-85924c800a22?auto=format&fit=crop&w=900&q=80">
+                <div class="category-content">
+                    <h3>Men</h3>
+                </div>
+            </div>
+
+            <div class="category">
+                <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=900&q=80">
+                <div class="category-content">
+                    <h3>Streetwear</h3>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- PRODUCTS -->
+    <section id="products">
+        <div class="section-title">
+            <h2>Featured Collection</h2>
+            <p>Explore our latest fashion products.</p>
+        </div>
+
+        <div class="products">
+
+            <div class="product">
+                <img src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=700&q=80">
+                <div class="product-info">
+                    <h3>Elegant Dress</h3>
+                    <p class="product-category">Women's Fashion</p>
+                    <p class="price">$65</p>
+                    <button class="add-cart" onclick="addToCart('Elegant Dress', 65)">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+
+            <div class="product">
+                <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=700&q=80">
+                <div class="product-info">
+                    <h3>Classic Jacket</h3>
+                    <p class="product-category">Men's Fashion</p>
+                    <p class="price">$85</p>
+                    <button class="add-cart" onclick="addToCart('Classic Jacket', 85)">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+
+            <div class="product">
+                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=700&q=80">
+                <div class="product-info">
+                    <h3>Premium T-Shirt</h3>
+                    <p class="product-category">Streetwear</p>
+                    <p class="price">$30</p>
+                    <button class="add-cart" onclick="addToCart('Premium T-Shirt', 30)">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+
+            <div class="product">
+                <img src="https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?auto=format&fit=crop&w=700&q=80">
+                <div class="product-info">
+                    <h3>Modern Pants</h3>
+                    <p class="product-category">Men's Fashion</p>
+                    <p class="price">$55</p>
+                    <button class="add-cart" onclick="addToCart('Modern Pants', 55)">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+
+            <div class="product">
+                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=700&q=80">
+                <div class="product-info">
+                    <h3>Fashion Sneakers</h3>
+                    <p class="product-category">Footwear</p>
+                    <p class="price">$75</p>
+                    <button class="add-cart" onclick="addToCart('Fashion Sneakers', 75)">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+
+            <div class="product">
+                <img src="https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?auto=format&fit=crop&w=700&q=80">
+                <div class="product-info">
+                    <h3>Luxury Outfit</h3>
+                    <p class="product-category">Premium Fashion</p>
+                    <p class="price">$120</p>
+                    <button class="add-cart" onclick="addToCart('Luxury Outfit', 120)">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+
+            <div class="product">
+                <img src="https://images.unsplash.com/photo-1591369822096-ffd140ec948f?auto=format&fit=crop&w=700&q=80">
+                <div class="product-info">
+                    <h3>Stylish Coat</h3>
+                    <p class="product-category">Women's Fashion</p>
+                    <p class="price">$95</p>
+                    <button class="add-cart" onclick="addToCart('Stylish Coat', 95)">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+
+            <div class="product">
+                <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=700&q=80">
+                <div class="product-info">
+                    <h3>Fashion Look</h3>
+                    <p class="product-category">New Collection</p>
+                    <p class="price">$110</p>
+                    <button class="add-cart" onclick="addToCart('Fashion Look', 110)">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- PROMOTION -->
+    <section class="promotion">
+        <h2>UP TO 30% OFF</h2>
+        <p>Special offers on selected fashion items.</p>
+        <a href="#products" class="hero-btn">Shop Now</a>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+        <div class="about">
+
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1000&q=80">
+            </div>
+
+            <div class="about-text">
+                <h2>About Bahati Fashion</h2>
+
+                <p>
+                    Bahati Fashion is a modern fashion brand created to provide
+                    stylish, comfortable and affordable clothing for everyone.
+                </p>
+
+                <p>
+                    Our goal is to combine modern fashion trends with quality
+                    products and excellent customer service.
+                </p>
+
+                <p>
+                    We believe that fashion is more than clothing.
+                    It is a way to express personality, confidence and creativity.
+                </p>
+
+                <a href="#contact" class="hero-btn">Contact Us</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOUNDER / PROFILE -->
+    <section class="founder" id="founder">
+
+        <div class="section-title">
+            <h2>About the Founder</h2>
+            <p>Meet the person behind Bahati Fashion.</p>
+        </div>
+
+        <div class="founder-container">
+
+            <!--
+                PROFILE PHOTO:
+                Put your own photo in the same folder as index.html
+                and name it: profile.jpg
+            -->
+            <div>
+                <img
+                    src="profile.jpg"
+                    alt="JOSEPH GATERA BAHATI"
+                    class="profile-photo"
+                >
+            </div>
+
+            <div class="founder-text">
+                <h2>JOSEPH GATERA BAHATI</h2>
+                <h3>Founder & Owner of Bahati Fashion</h3>
+
+                <p>
+                    Welcome to Bahati Fashion. My name is Joseph Gatera Bahati,
+                    and I am the founder of Bahati Fashion.
+                </p>
+
+                <p>
+                    I created this business with the vision of bringing
+                    modern, attractive and affordable fashion to customers.
+                </p>
+
+                <p>
+                    Bahati Fashion represents creativity, confidence,
+                    quality and modern style.
+                </p>
+
+                <div class="founder-info">
+                    <p><strong>📍 Location:</strong> Goma, North Kivu, DRC</p>
+                    <p><strong>📧 Email:</strong> josephgatera2004@gmail.com</p>
+                    <p><strong>📱 Phone:</strong> +243 845 935 887</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section>
+        <div class="section-title">
+            <h2>Why Choose Us?</h2>
+            <p>We care about your fashion experience.</p>
+        </div>
+
+        <div class="features">
+
+            <div class="feature">
+                <div class="feature-icon">✨</div>
+                <h3>Quality Fashion</h3>
+                <p>Carefully selected products with modern designs.</p>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon">💰</div>
+                <h3>Affordable Prices</h3>
+                <p>Fashion products at competitive prices.</p>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon">🚚</div>
+                <h3>Fast Delivery</h3>
+                <p>We work to make your shopping experience convenient.</p>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon">❤️</div>
+                <h3>Customer Care</h3>
+                <p>Your satisfaction is important to us.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+
+        <div class="contact-container">
+
+            <div class="contact-info">
+                <h2>Contact Us</h2>
+
+                <p>Have a question about our products?</p>
+                <p>Feel free to contact Bahati Fashion.</p>
+
+                <br>
+
+                <p><strong>📍 Address:</strong> Goma, North Kivu, DRC</p>
+                <p><strong>📧 Email:</strong> josephgatera2004@gmail.com</p>
+                <p><strong>📱 Phone:</strong> +243 845 935 887</p>
+
+                <br>
+
+                <p><strong>Opening Hours:</strong></p>
+                <p>Monday - Saturday: 8:00 AM - 6:00 PM</p>
+                <p>Sunday: 10:00 AM - 4:00 PM</p>
+            </div>
+
+            <form class="contact-form" onsubmit="sendMessage(event)">
+
+                <input
+                    type="text"
+                    id="name"
+                    placeholder="Your Name"
+                    required
+                >
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Your Email"
+                    required
+                >
+
+                <input
+                    type="text"
+                    id="subject"
+                    placeholder="Subject"
+                    required
+                >
+
+                <textarea
+                    id="message"
+                    placeholder="Your Message"
+                    required
+                ></textarea>
+
+                <button type="submit">Send Message</button>
+
+            </form>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>
+            © 2026 <span>Bahati Fashion</span>.
+            All Rights Reserved.
+        </p>
+
+        <p>
+            Designed by <span>JOSEPH GATERA BAHATI</span>
+        </p>
+    </footer>
+
+    <!-- CART SIDEBAR -->
+    <div class="cart-sidebar" id="cartSidebar">
+
+        <div class="cart-header">
+            <h2>Shopping Cart</h2>
+
+            <button class="close-cart" onclick="closeCart()">
+                ✕
+            </button>
+        </div>
+
+        <div id="cartItems">
+            <p>Your cart is empty.</p>
+        </div>
+
+        <div class="cart-total">
+            Total: $<span id="cartTotal">0</span>
+        </div>
+
+        <button class="checkout" onclick="checkout()">
+            Checkout
+        </button>
+
+    </div>
+
+    <script>
+
+        let cart = [];
+
+        /* ADD PRODUCT TO CART */
+        function addToCart(name, price) {
+
+            const existingProduct = cart.find(
+                product => product.name === name
+            );
+
+            if (existingProduct) {
+                existingProduct.quantity++;
+            } else {
+                cart.push({
+                    name: name,
+                    price: price,
+                    quantity: 1
+                });
+            }
+
+            updateCart();
+
+            alert(name + " has been added to your cart.");
+        }
+
+        /* UPDATE CART */
+        function updateCart() {
+
+            const cartItems = document.getElementById("cartItems");
+            const cartCount = document.getElementById("cartCount");
+            const cartTotal = document.getElementById("cartTotal");
+
+            cartItems.innerHTML = "";
+
+            let total = 0;
+            let count = 0;
+
+            if (cart.length === 0) {
+                cartItems.innerHTML = "<p>Your cart is empty.</p>";
+            }
+
+            cart.forEach((product, index) => {
+
+                total += product.price * product.quantity;
+                count += product.quantity;
+
+                const item = document.createElement("div");
+
+                item.className = "cart-item";
+
+                item.innerHTML = `
+                    <div>
+                        <strong>${product.name}</strong>
+                        <p>$${product.price} × ${product.quantity}</p>
+                    </div>
+
+                    <div>
+                        <button onclick="decreaseItem(${index})">−</button>
+                        <button onclick="increaseItem(${index})">+</button>
+                        <button onclick="removeItem(${index})">✕</button>
+                    </div>
+                `;
+
+                cartItems.appendChild(item);
+            });
+
+            cartCount.textContent = count;
+            cartTotal.textContent = total.toFixed(2);
+        }
+
+        /* INCREASE */
+        function increaseItem(index) {
+            cart[index].quantity++;
+            updateCart();
+        }
+
+        /* DECREASE */
+        function decreaseItem(index) {
+
+            if (cart[index].quantity > 1) {
+                cart[index].quantity--;
+            } else {
+                cart.splice(index, 1);
+            }
+
+            updateCart();
+        }
+
+        /* REMOVE */
+        function removeItem(index) {
+            cart.splice(index, 1);
+            updateCart();
+        }
+
+        /* OPEN CART */
+        function openCart() {
+            document
+                .getElementById("cartSidebar")
+                .classList.add("active");
+        }
+
+        /* CLOSE CART */
+        function closeCart() {
+            document
+                .getElementById("cartSidebar")
+                .classList.remove("active");
+        }
+
+        /* CHECKOUT */
+        function checkout() {
+
+            if (cart.length === 0) {
+                alert("Your cart is empty.");
+                return;
+            }
+
+            alert(
+                "Thank you for shopping with Bahati Fashion! " +
+                "Your order has been received."
+            );
+        }
+
+        /* CONTACT FORM */
+        function sendMessage(event) {
+
+            event.preventDefault();
+
+            const name = document.getElementById("name").value;
+
+            alert(
+                "Thank you, " +
+                name +
+                "! Your message has been received."
+            );
+
+            event.target.reset();
+        }
+
+    </script>
+
+</body>
+</html>
